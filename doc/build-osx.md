@@ -24,17 +24,17 @@ If you want to build the disk image with `make deploy` (.dmg / optional), you ne
 
 NOTE: Building with Qt4 is still supported, however, could result in a broken UI. Building with Qt5 is recommended.
 
-Build Litecoin Core
+Build s-CROW Core
 ------------------------
 
-1. Clone the litecoin source code and cd into `litecoin`
+1. Clone the s-crow source code and cd into `s-crow`
 
-        git clone https://github.com/litecoin-project/litecoin
-        cd litecoin
+        git clone https://github.com/s-crow-project/s-crow
+        cd s-crow
 
-2.  Build litecoin-core:
+2.  Build s-crow-core:
 
-    Configure and build the headless litecoin binaries as well as the GUI (if Qt is found).
+    Configure and build the headless s-crow binaries as well as the GUI (if Qt is found).
 
     You can disable the GUI build by passing `--without-gui` to configure.
 
@@ -53,37 +53,37 @@ Build Litecoin Core
 Running
 -------
 
-Litecoin Core is now available at `./src/litecoind`
+s-CROW Core is now available at `./src/s-crowd`
 
 Before running, it's recommended you create an RPC configuration file.
 
-    echo -e "rpcuser=litecoinrpc\nrpcpassword=$(xxd -l 16 -p /dev/urandom)" > "/Users/${USER}/Library/Application Support/Litecoin/litecoin.conf"
+    echo -e "rpcuser=s-crowrpc\nrpcpassword=$(xxd -l 16 -p /dev/urandom)" > "/Users/${USER}/Library/Application Support/s-CROW/s-crow.conf"
 
-    chmod 600 "/Users/${USER}/Library/Application Support/Litecoin/litecoin.conf"
+    chmod 600 "/Users/${USER}/Library/Application Support/s-CROW/s-crow.conf"
 
-The first time you run litecoind, it will start downloading the blockchain. This process could take several hours.
+The first time you run s-crowd, it will start downloading the blockchain. This process could take several hours.
 
 You can monitor the download process by looking at the debug.log file:
 
-    tail -f $HOME/Library/Application\ Support/Litecoin/debug.log
+    tail -f $HOME/Library/Application\ Support/s-CROW/debug.log
 
 Other commands:
 -------
 
-    ./src/litecoind -daemon # Starts the litecoin daemon.
-    ./src/litecoin-cli --help # Outputs a list of command-line options.
-    ./src/litecoin-cli help # Outputs a list of RPC commands when the daemon is running.
+    ./src/s-crowd -daemon # Starts the s-crow daemon.
+    ./src/s-crow-cli --help # Outputs a list of command-line options.
+    ./src/s-crow-cli help # Outputs a list of RPC commands when the daemon is running.
 
 Using Qt Creator as IDE
 ------------------------
-You can use Qt Creator as an IDE, for litecoin development.
+You can use Qt Creator as an IDE, for s-crow development.
 Download and install the community edition of [Qt Creator](https://www.qt.io/download/).
 Uncheck everything except Qt Creator during the installation process.
 
 1. Make sure you installed everything through Homebrew mentioned above
 2. Do a proper ./configure --enable-debug
 3. In Qt Creator do "New Project" -> Import Project -> Import Existing Project
-4. Enter "litecoin-qt" as project name, enter src/qt as location
+4. Enter "s-crow-qt" as project name, enter src/qt as location
 5. Leave the file selection as it is
 6. Confirm the "summary page"
 7. In the "Projects" tab select "Manage Kits..."
