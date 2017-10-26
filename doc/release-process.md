@@ -33,7 +33,7 @@ If you're using the automated script (found in [contrib/gitian-build.sh](/contri
 Check out the source code in the following directory hierarchy.
 
     cd /path/to/your/toplevel/build
-    git clone https://github.com/s-crow-project/gitian.sigs.ltc.git
+    git clone https://github.com/s-crow-project/gitian.sigs.scw.git
     git clone https://github.com/s-crow-project/s-crow-detached-sigs.git
     git clone https://github.com/devrandom/gitian-builder.git
     git clone https://github.com/s-crow-project/s-crow.git
@@ -68,9 +68,9 @@ Setup Gitian descriptors:
     git checkout v${VERSION}
     popd
 
-Ensure your gitian.sigs.ltc are up-to-date if you wish to gverify your builds against other Gitian signatures.
+Ensure your gitian.sigs.scw are up-to-date if you wish to gverify your builds against other Gitian signatures.
 
-    pushd ./gitian.sigs.ltc
+    pushd ./gitian.sigs.scw
     git pull
     popd
 
@@ -112,16 +112,16 @@ The gbuild invocations below <b>DO NOT DO THIS</b> by default.
 
     pushd ./gitian-builder
     ./bin/gbuild --num-make 2 --memory 3000 --commit s-crow=v${VERSION} ../s-crow/contrib/gitian-descriptors/gitian-linux.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs.ltc/ ../s-crow/contrib/gitian-descriptors/gitian-linux.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs.scw/ ../s-crow/contrib/gitian-descriptors/gitian-linux.yml
     mv build/out/s-crow-*.tar.gz build/out/src/s-crow-*.tar.gz ../
 
     ./bin/gbuild --num-make 2 --memory 3000 --commit s-crow=v${VERSION} ../s-crow/contrib/gitian-descriptors/gitian-win.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs.ltc/ ../s-crow/contrib/gitian-descriptors/gitian-win.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs.scw/ ../s-crow/contrib/gitian-descriptors/gitian-win.yml
     mv build/out/s-crow-*-win-unsigned.tar.gz inputs/s-crow-win-unsigned.tar.gz
     mv build/out/s-crow-*.zip build/out/s-crow-*.exe ../
 
     ./bin/gbuild --num-make 2 --memory 3000 --commit s-crow=v${VERSION} ../s-crow/contrib/gitian-descriptors/gitian-osx.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs.ltc/ ../s-crow/contrib/gitian-descriptors/gitian-osx.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs.scw/ ../s-crow/contrib/gitian-descriptors/gitian-osx.yml
     mv build/out/s-crow-*-osx-unsigned.tar.gz inputs/s-crow-osx-unsigned.tar.gz
     mv build/out/s-crow-*.tar.gz build/out/s-crow-*.dmg ../
     popd
@@ -132,7 +132,7 @@ Build output expected:
   2. linux 32-bit and 64-bit dist tarballs (`s-crow-${VERSION}-linux[32|64].tar.gz`)
   3. windows 32-bit and 64-bit unsigned installers and dist zips (`s-crow-${VERSION}-win[32|64]-setup-unsigned.exe`, `s-crow-${VERSION}-win[32|64].zip`)
   4. OS X unsigned installer and dist tarball (`s-crow-${VERSION}-osx-unsigned.dmg`, `s-crow-${VERSION}-osx64.tar.gz`)
-  5. Gitian signatures (in `gitian.sigs.ltc/${VERSION}-<linux|{win,osx}-unsigned>/(your Gitian key)/`)
+  5. Gitian signatures (in `gitian.sigs.scw/${VERSION}-<linux|{win,osx}-unsigned>/(your Gitian key)/`)
 
 ### Verify other gitian builders signatures to your own. (Optional)
 
@@ -144,21 +144,21 @@ Add other gitian builders keys to your gpg keyring, and/or refresh keys.
 Verify the signatures
 
     pushd ./gitian-builder
-    ./bin/gverify -v -d ../gitian.sigs.ltc/ -r ${VERSION}-linux ../s-crow/contrib/gitian-descriptors/gitian-linux.yml
-    ./bin/gverify -v -d ../gitian.sigs.ltc/ -r ${VERSION}-win-unsigned ../s-crow/contrib/gitian-descriptors/gitian-win.yml
-    ./bin/gverify -v -d ../gitian.sigs.ltc/ -r ${VERSION}-osx-unsigned ../s-crow/contrib/gitian-descriptors/gitian-osx.yml
+    ./bin/gverify -v -d ../gitian.sigs.scw/ -r ${VERSION}-linux ../s-crow/contrib/gitian-descriptors/gitian-linux.yml
+    ./bin/gverify -v -d ../gitian.sigs.scw/ -r ${VERSION}-win-unsigned ../s-crow/contrib/gitian-descriptors/gitian-win.yml
+    ./bin/gverify -v -d ../gitian.sigs.scw/ -r ${VERSION}-osx-unsigned ../s-crow/contrib/gitian-descriptors/gitian-osx.yml
     popd
 
 ### Next steps:
 
-Commit your signature to gitian.sigs.ltc:
+Commit your signature to gitian.sigs.scw:
 
-    pushd gitian.sigs.ltc
+    pushd gitian.sigs.scw
     git add ${VERSION}-linux/${SIGNER}
     git add ${VERSION}-win-unsigned/${SIGNER}
     git add ${VERSION}-osx-unsigned/${SIGNER}
     git commit -a
-    git push  # Assuming you can push to the gitian.sigs.ltc tree
+    git push  # Assuming you can push to the gitian.sigs.scw tree
     popd
 
 Codesigner only: Create Windows/OS X detached signatures:
@@ -201,8 +201,8 @@ Create (and optionally verify) the signed OS X binary:
 
     pushd ./gitian-builder
     ./bin/gbuild -i --commit signature=v${VERSION} ../s-crow/contrib/gitian-descriptors/gitian-osx-signer.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs.ltc/ ../s-crow/contrib/gitian-descriptors/gitian-osx-signer.yml
-    ./bin/gverify -v -d ../gitian.sigs.ltc/ -r ${VERSION}-osx-signed ../s-crow/contrib/gitian-descriptors/gitian-osx-signer.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs.scw/ ../s-crow/contrib/gitian-descriptors/gitian-osx-signer.yml
+    ./bin/gverify -v -d ../gitian.sigs.scw/ -r ${VERSION}-osx-signed ../s-crow/contrib/gitian-descriptors/gitian-osx-signer.yml
     mv build/out/s-crow-osx-signed.dmg ../s-crow-${VERSION}-osx.dmg
     popd
 
@@ -210,19 +210,19 @@ Create (and optionally verify) the signed Windows binaries:
 
     pushd ./gitian-builder
     ./bin/gbuild -i --commit signature=v${VERSION} ../s-crow/contrib/gitian-descriptors/gitian-win-signer.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs.ltc/ ../s-crow/contrib/gitian-descriptors/gitian-win-signer.yml
-    ./bin/gverify -v -d ../gitian.sigs.ltc/ -r ${VERSION}-win-signed ../s-crow/contrib/gitian-descriptors/gitian-win-signer.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs.scw/ ../s-crow/contrib/gitian-descriptors/gitian-win-signer.yml
+    ./bin/gverify -v -d ../gitian.sigs.scw/ -r ${VERSION}-win-signed ../s-crow/contrib/gitian-descriptors/gitian-win-signer.yml
     mv build/out/s-crow-*win64-setup.exe ../s-crow-${VERSION}-win64-setup.exe
     mv build/out/s-crow-*win32-setup.exe ../s-crow-${VERSION}-win32-setup.exe
     popd
 
 Commit your signature for the signed OS X/Windows binaries:
 
-    pushd gitian.sigs.ltc
+    pushd gitian.sigs.scw
     git add ${VERSION}-osx-signed/${SIGNER}
     git add ${VERSION}-win-signed/${SIGNER}
     git commit -a
-    git push  # Assuming you can push to the gitian.sigs.ltc tree
+    git push  # Assuming you can push to the gitian.sigs.scw tree
     popd
 
 ### After 3 or more people have gitian-built and their results match:
