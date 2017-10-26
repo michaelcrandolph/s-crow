@@ -370,16 +370,16 @@ nodist_libbitcoin_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
 # bitcoind binary #
-s-crowd_SOURCES = bitcoind.cpp
-s-crowd_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-s-crowd_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-s-crowd_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+S_CROWD_SOURCES = bitcoind.cpp
+S_CROWD_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+S_CROWD_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+S_CROWD_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-s-crowd_SOURCES += bitcoind-res.rc
+S_CROWD_SOURCES += bitcoind-res.rc
 endif
 
-s-crowd_LDADD = \
+S_CROWD_LDADD = \
   $(LIBBITCOIN_SERVER) \
   $(LIBBITCOIN_COMMON) \
   $(LIBUNIVALUE) \
@@ -393,7 +393,7 @@ s-crowd_LDADD = \
   $(LIBMEMENV) \
   $(LIBSECP256K1)
 
-s-crowd_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS)
+S_CROWD_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS)
 
 # bitcoin-cli binary #
 s-crow_cli_SOURCES = bitcoin-cli.cpp
