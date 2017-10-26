@@ -415,16 +415,16 @@ s_crow_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
 #
 
 # bitcoin-tx binary #
-s-crow_tx_SOURCES = bitcoin-tx.cpp
-s-crow_tx_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-s-crow_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-s-crow_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+s_crow_tx_SOURCES = bitcoin-tx.cpp
+s_crow_tx_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+s_crow_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+s_crow_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-s-crow_tx_SOURCES += bitcoin-tx-res.rc
+s_crow_tx_SOURCES += bitcoin-tx-res.rc
 endif
 
-s-crow_tx_LDADD = \
+s_crow_tx_LDADD = \
   $(LIBUNIVALUE) \
   $(LIBBITCOIN_COMMON) \
   $(LIBBITCOIN_UTIL) \
@@ -432,7 +432,7 @@ s-crow_tx_LDADD = \
   $(LIBBITCOIN_CRYPTO) \
   $(LIBSECP256K1)
 
-s-crow_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
+s_crow_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
 #
 
 # bitcoinconsensus library #
