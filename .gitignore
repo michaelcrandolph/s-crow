@@ -6,7 +6,7 @@ src/s-crowd
 src/s-crow-cli
 src/s-crow-tx
 src/test/test_s-crow
-src/test/test_s-crow_fuzzy
+src/test/test_s_crow_fuzzy
 src/qt/test/test_s-crow-qt
 
 # autoreconf

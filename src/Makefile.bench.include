@@ -10,7 +10,7 @@ RAW_TEST_FILES = \
   bench/data/block413567.raw
 GENERATED_TEST_FILES = $(RAW_TEST_FILES:.raw=.raw.h)
 
-bench_bench_s-crow_SOURCES = \
+bench_bench_s_crow_SOURCES = \
   bench/bench_bitcoin.cpp \
   bench/bench.cpp \
   bench/bench.h \
@@ -28,11 +28,11 @@ bench_bench_s-crow_SOURCES = \
   bench/perf.h \
   bench/prevector_destructor.cpp
 
-nodist_bench_bench_s-crow_SOURCES = $(GENERATED_TEST_FILES)
+nodist_bench_bench_s_crow_SOURCES = $(GENERATED_TEST_FILES)
 
-bench_bench_s-crow_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CLFAGS) $(EVENT_PTHREADS_CFLAGS) -I$(builddir)/bench/
-bench_bench_s-crow_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-bench_bench_s-crow_LDADD = \
+bench_bench_s_crow_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CLFAGS) $(EVENT_PTHREADS_CFLAGS) -I$(builddir)/bench/
+bench_bench_s_crow_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+bench_bench_s_crow_LDADD = \
   $(LIBBITCOIN_SERVER) \
   $(LIBBITCOIN_COMMON) \
   $(LIBBITCOIN_UTIL) \
@@ -45,16 +45,16 @@ bench_bench_s-crow_LDADD = \
   $(LIBUNIVALUE)
 
 if ENABLE_ZMQ
-bench_bench_s-crow_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
+bench_bench_s_crow_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
 endif
 
 if ENABLE_WALLET
-bench_bench_s-crow_SOURCES += bench/coin_selection.cpp
-bench_bench_s-crow_LDADD += $(LIBBITCOIN_WALLET) $(LIBBITCOIN_CRYPTO)
+bench_bench_s_crow_SOURCES += bench/coin_selection.cpp
+bench_bench_s_crow_LDADD += $(LIBBITCOIN_WALLET) $(LIBBITCOIN_CRYPTO)
 endif
 
-bench_bench_s-crow_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS)
-bench_bench_s-crow_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+bench_bench_s_crow_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS)
+bench_bench_s_crow_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 CLEAN_BITCOIN_BENCH = bench/*.gcda bench/*.gcno $(GENERATED_TEST_FILES)
 
