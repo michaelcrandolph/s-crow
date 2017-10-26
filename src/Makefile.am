@@ -396,22 +396,22 @@ S_CROWD_LDADD = \
 S_CROWD_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS)
 
 # bitcoin-cli binary #
-s-crow_cli_SOURCES = bitcoin-cli.cpp
-s-crow_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
-s-crow_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-s-crow_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+s_crow_cli_SOURCES = bitcoin-cli.cpp
+s_crow_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
+s_crow_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+s_crow_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-s-crow_cli_SOURCES += bitcoin-cli-res.rc
+s_crow_cli_SOURCES += bitcoin-cli-res.rc
 endif
 
-s-crow_cli_LDADD = \
+s_crow_cli_LDADD = \
   $(LIBBITCOIN_CLI) \
   $(LIBUNIVALUE) \
   $(LIBBITCOIN_UTIL) \
   $(LIBBITCOIN_CRYPTO)
 
-s-crow_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
+s_crow_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
 #
 
 # bitcoin-tx binary #
