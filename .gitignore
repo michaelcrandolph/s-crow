@@ -1,13 +1,13 @@
 *.tar.gz
 
 *.exe
-#src/s-crow
-#src/s-crowd
-#src/s-crow-cli
-#src/s-crow-tx
-#src/test/test_s-crow
-#src/test/test_s_crow_fuzzy
-#src/qt/test/test_s-crow-qt
+src/s-crow
+src/s-crowd
+src/s-crow-cli
+src/s-crow-tx
+src/test/test_s-crow
+src/test/test_s_crow_fuzzy
+src/qt/test/test_s-crow-qt
 
 # autoreconf
 Makefile.in
