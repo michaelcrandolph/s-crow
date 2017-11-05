@@ -270,10 +270,10 @@ public:
         nDefaultPort = 19335;
         nPruneAfterHeight = 1000;
 
-        genesis = CreateGenesisBlock(1509848200, 0, 0x1e0ffff0, 1, 50 * COIN);
+        genesis = CreateGenesisBlock(1509848999, 2122677, 0x1e0ffff0, 1, 50 * COIN);
         // Temporary Code
-        consensus.hashGenesisBlock = uint256S("0x01");
-        if (true && genesis.GetHash() != consensus.hashGenesisBlock)
+        //consensus.hashGenesisBlock = uint256S("0x01");
+        if (false && genesis.GetHash() != consensus.hashGenesisBlock)
         {      
             printf("Searching for genesis block...\n");
             // This will figure out a valid hash and Nonce if you're
@@ -305,8 +305,8 @@ public:
         }
        // Temporary Code
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0x"));
-        assert(genesis.hashMerkleRoot == uint256S("0x"));
+        assert(consensus.hashGenesisBlock == uint256S("0xdd44a430632cd5f575f7f86e556de3eb4ebcb9e23776679d49220a8a8f954755"));
+        assert(genesis.hashMerkleRoot == uint256S("0xb49ad2ea7facd399018f276a99156c60b658dd5b747f73f9f2ae0f2149a9dbe2"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
@@ -330,7 +330,7 @@ public:
 
         checkpointData = (CCheckpointData) {
             {
-                {   0, uint256S("0x") },
+                {   0, uint256S("0xdd44a430632cd5f575f7f86e556de3eb4ebcb9e23776679d49220a8a8f954755") },
                 //{2056, uint256S("17748a31ba97afdc9a4f86837a39d287e3e7c7290a08a1d816c5969c78a83289")},
             }
         };
@@ -375,7 +375,7 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nTimeout = 999999999999ULL;
 
         // The best chain should have at least this much work.
-        consensus.nMinimumChainWork = uint256S("0x");
+        consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000000364b0cbc3568");
 
         // By default assume that the signatures in ancestors of this block are valid.
         consensus.defaultAssumeValid = uint256S("0x");
@@ -387,9 +387,9 @@ public:
         nDefaultPort = 19444;
         nPruneAfterHeight = 1000;
 
-        genesis = CreateGenesisBlock(1509848200, 0, 0x207fffff, 1, 50 * COIN);
+        genesis = CreateGenesisBlock(1509848888, 2, 0x207fffff, 1, 50 * COIN);
         // Temporary Code
-        consensus.hashGenesisBlock = uint256S("0x01");
+        //consensus.hashGenesisBlock = uint256S("0x01");
         if (false && genesis.GetHash() != consensus.hashGenesisBlock)
         {      
             printf("Searching for genesis block...\n");
@@ -422,8 +422,8 @@ public:
         }
        // Temporary Code        
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0x"));
-        assert(genesis.hashMerkleRoot == uint256S("0x"));
+        assert(consensus.hashGenesisBlock == uint256S("0xd1a8d4415273613e728e118dff36f6e7f855e359efa35d9749ebedab5ab718e9"));
+        assert(genesis.hashMerkleRoot == uint256S("0xb49ad2ea7facd399018f276a99156c60b658dd5b747f73f9f2ae0f2149a9dbe2"));
 
         vFixedSeeds.clear(); //!< Regtest mode doesn't have any fixed seeds.
         vSeeds.clear();      //!< Regtest mode doesn't have any DNS seeds.
@@ -434,7 +434,7 @@ public:
 
         checkpointData = (CCheckpointData) {
             {
-                {   0, uint256S("0x") },
+                {   0, uint256S("0xd1a8d4415273613e728e118dff36f6e7f855e359efa35d9749ebedab5ab718e9") },
             }
         };
 
