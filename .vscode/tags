@@ -534,7 +534,7 @@ PORT_MIN	../test/functional/test_framework/util.py	/^PORT_MIN = 11000$/;"	kind:v
 PORT_RANGE	../test/functional/test_framework/util.py	/^PORT_RANGE = 5000$/;"	kind:variable	line:168
 PRIVKEY	../contrib/testgen/gen_base58_test_vectors.py	/^PRIVKEY = 176$/;"	kind:variable	line:25
 PRIVKEY_TEST	../contrib/testgen/gen_base58_test_vectors.py	/^PRIVKEY_TEST = 239$/;"	kind:variable	line:26
-PUBKEY_ADDRESS	../contrib/testgen/gen_base58_test_vectors.py	/^PUBKEY_ADDRESS = 48$/;"	kind:variable	line:21
+PUBKEY_ADDRESS	../contrib/testgen/gen_base58_test_vectors.py	/^PUBKEY_ADDRESS = 63$/;"	kind:variable	line:21
 PUBKEY_ADDRESS_TEST	../contrib/testgen/gen_base58_test_vectors.py	/^PUBKEY_ADDRESS_TEST = 111$/;"	kind:variable	line:23
 Popen	../share/qt/extract_strings_qt.py	/^from subprocess import Popen, PIPE$/;"	kind:namespace	line:10
 PortSeed	../test/functional/test_framework/util.py	/^class PortSeed:$/;"	kind:class	line:170
@@ -1355,7 +1355,6 @@ create_tx	../test/functional/p2p-fullblocktest.py	/^    def create_tx(self, spen
 create_tx	../test/functional/test_framework/util.py	/^def create_tx(node, coinbase, to_address, amount):$/;"	kind:function	line:464
 create_updated_copyright_line	../contrib/devtools/copyright_header.py	/^def create_updated_copyright_line(line, last_git_change_year):$/;"	kind:function	line:366
 create_witnessprogram	../test/functional/segwit.py	/^def create_witnessprogram(use_p2wsh, utxo, pubkey, encode_p2sh, amount):$/;"	kind:function	line:37
-crow_scrypt	../test/functional/test_framework/mininode.py	/^import litecoin_scrypt$/;"	kind:namespace	line:37
 cryptogen	../share/rpcuser/rpcuser.py	/^cryptogen = SystemRandom()$/;"	kind:variable	line:20
 csv_invalidate	../test/functional/bip9-softforks.py	/^    def csv_invalidate(self, tx):$/;"	kind:member	line:262
 ctypes	../test/functional/test_framework/key.py	/^import ctypes$/;"	kind:namespace	line:10
@@ -1745,6 +1744,7 @@ linearize-hashes.py	../contrib/linearize/linearize-hashes.py	1;"	kind:file	line:
 list_available	../contrib/spendfrom/spendfrom.py	/^def list_available(bitcoind):$/;"	kind:function	line:102
 listsinceblock.py	../test/functional/listsinceblock.py	1;"	kind:file	line:1
 listtransactions.py	../test/functional/listtransactions.py	1;"	kind:file	line:1
+litecoin_scrypt	../test/functional/test_framework/mininode.py	/^import litecoin_scrypt$/;"	kind:namespace	line:37
 log	../test/functional/test_framework/authproxy.py	/^log = logging.getLogger("BitcoinRPC")$/;"	kind:variable	line:55
 log_filename	../test/functional/test_framework/util.py	/^def log_filename(dirname, n_node, logname):$/;"	kind:function	line:257
 logger	../test/functional/test_framework/blockstore.py	/^logger = logging.getLogger("TestFramework.blockstore")$/;"	kind:variable	line:11
@@ -2242,7 +2242,6 @@ run_test	../test/functional/walletbackup.py	/^    def run_test(self):$/;"	kind:m
 run_test	../test/functional/zapwallettxes.py	/^    def run_test(self):$/;"	kind:member	line:29
 run_test	../test/functional/zmq_test.py	/^    def run_test(self):$/;"	kind:member	line:47
 run_tests	../test/functional/test_runner.py	/^def run_tests(test_list, src_dir, build_dir, exeext, tmpdir, jobs=1, enable_coverage=False, args=[]):$/;"	kind:function	line:267
-s	../test/functional/test_framework/mininode.py	/^import litecoin_scrypt$/;"	kind:namespace	line:37
 salt	../share/rpcuser/rpcuser.py	/^salt = "".join([x[2:] for x in hexseq])$/;"	kind:variable	line:25
 salt_sequence	../share/rpcuser/rpcuser.py	/^salt_sequence = [cryptogen.randrange(256) for i in range(16)]$/;"	kind:variable	line:23
 sanitize_string	../contrib/devtools/update-translations.py	/^def sanitize_string(s):$/;"	kind:function	line:79
