@@ -43,7 +43,7 @@ config file):
 
 	HiddenServiceDir /var/lib/tor/s-crow-service/
 	HiddenServicePort 9711 127.0.0.1:9711
-	HiddenServicePort 19335 127.0.0.1:19335
+	HiddenServicePort 19335 127.0.0.1:19711
 
 The directory can be different of course, but (both) port numbers should be equal to
 your s-crowd's P2P listen port (9711 by default).
